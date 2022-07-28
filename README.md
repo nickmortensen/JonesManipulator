@@ -1,8 +1,7 @@
-
-# Page Manipulator.
+# Jones Manipulator.
 
 WARNING: This extension works on most sites, but there are some exceptions!
-If you'd like to see any specific improvements or found any bugs, let me know [here](https://github.com/Ruud14/Page-Manipulator/issues).
+Based on the fine extension Page Manipulator by Ruud14.  There may be some Jones Specific changes here that I may want tot ake private one day -- so I just copied it into an entirely new repository.  If you'd like to see any specific improvements or found any bugs, let me know [here](https://github.com/Ruud14/Page-Manipulator/issues).
 
 **Browser Extension to inject HTML, CSS or JavaScript into any web-page.**
 Inject HTML, CSS or JavaScript into your favorite web-pages.
@@ -82,7 +81,7 @@ Or follow the steps below.
 - Automatically saves the changes you make.
     - Files that contain less than 8000 characters are synced across your google account.
     - Files that contain 8000 or more characters are stored locally.
-    
+
 
 
 **Fun use cases**:
@@ -97,7 +96,7 @@ Or follow the steps below.
 - Make sure the 'active' checkbox is checked. And the 'active websites' input contains the correct URLs.
 - For Javascript:
     - Make sure your code is run at the right moment. Maybe try adding a delay.
-    - Check the chrome console for error messages. 
+    - Check the chrome console for error messages.
 
 - For CSS:
     - Make sure you are are manipulating the right element. by using "inspect element".
