@@ -1,0 +1,22 @@
+# Ignore everything in the root except the "wp-content" directory.
+/*
+!.gitignore
+!libs/
+!popup.html
+!manifest.json
+!README.md
+
+!content.css
+!popup.css
+
+!content.js
+!eventpage.js
+!popup.js
+
+# MAC Finder files
+**/.DS_Store
+.DS_Store
+
+
+!/.github/
+# use
