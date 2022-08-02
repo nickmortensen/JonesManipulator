@@ -1,7 +1,7 @@
 # Jones Manipulator.
 
 WARNING: This extension works on most sites, but there are some exceptions!
-Based on the fine extension Page Manipulator by Ruud14.  There may be some Jones Specific changes here that I may want tot ake private one day -- so I just copied it into an entirely new repository.  If you'd like to see any specific improvements or found any bugs, let me know [here](https://github.com/Ruud14/Page-Manipulator/issues).
+Based on the fine extension Page Manipulator by [Ruud14] (https://microsoftedge.microsoft.com/addons/detail/page-manipulator) -- if you are looking to fork it, you'd best go get that one because I am entirely new to creating extensions and bound to mess this up royally. There may be some Jones Specific changes here that I may need to take private one day -- so I just copied it into an entirely new repository. I hope I am not stepping on any toes or using bad manners here in doing so.
 
 **Browser Extension to inject HTML, CSS or JavaScript into any web-page.**
 Inject HTML, CSS or JavaScript into your favorite web-pages.

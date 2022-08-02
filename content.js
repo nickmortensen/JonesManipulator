@@ -326,6 +326,7 @@ function manipulate(request, update)
 
 			// head.appendChild(style);
 			// instead of just injecting the style, try and make it the last thinginsert the CSS as the absolute last thing before the end of the 'head' tag
+			// @link https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentElement
 			head.insertAdjacentElement( 'beforeend', style);
 
 			let array_item = [request.filename, style];
