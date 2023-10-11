@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<!-- Last Updated on 2023-02-20
+
+	note that we can insert a style tag above in the same manner
+	-->
+
+	<style>
+		table {
+			align: left;
+			margin: 10px auto;
+			background: #fcfcfc;
+			border: 1px solid #efefef;
+			border-top: none;
+			border-left: none;
+			box-shadow: 1px 4px 12px 1px #eff0fc;
+			font-family: monospace, sans-serif;
+			color: #737478;
+		}
+		tr {
+			line-height: 1.35;
+			padding: 12px;
+		}
+		td {
+			line-height: 1.45;
+			font-size: 18px;
+		}
+		td.inputted {
+			max-width: 820px;
+			padding-left: 18px;
+			padding-right: 10px;
+		}
+		td.before {
+			width: 20px;
+		}
+		.inputted,
+		.before,
+		.label {
+			border-bottom: 1px solid rgba(100,149,237,0.5);
+		}
+		div.dot {
+			background: unset;
+			border: 2px solid #efefef;
+			border-radius: 50%;
+			margin-left: 4px;
+			max-width: 15px;
+			min-height: 15px;
+			vertical-align: middle;
+		}
+		.label {
+			border-right: 1px solid #ff9d9d;
+			font-size: 20px;
+			font-weight: 800;
+			letter-spacing: 1.5px;
+			padding-left: 8px;
+			padding-right: 5px;
+			text-align: right;
+		}
+		.vertical {
+			border-bottom: none;
+			line-height: 1.37;
+			vertical-align: top;
+		}
+
+		#theProspectMessage {
+			border-bottom: none;
+			font-size: 20px;
+			font-style: italic;
+			line-height: 1.17;
+			max-width: 820px;
+			padding-left: 18px;
+			padding-right: 10px;
+		}
+	</style>
+	<table id="theTable" style="">
+		<tbody id="theTableBody">
+		<tr class="initial-row" colspan="3" class="data-row" style="">
+			<td colspan="3" style="border-bottom: 1px solid rgba(100,149,237,0.5); border-color: rgba(0,0,0,0.05);">
+				<h3 id="theFormTitle" style="color: #0273b9;  font-size: 34px; font-style: italic; font-weight: 900; letter-spacing: 2px; line-height: 1.6; text-align: center; text-shadow: 1px 1px 1px #515153; text-transform: uppercase;">${formTitle}</h3>
+			</td>
+		</tr>
+		<tr class="data-row" style="">
+			<td class="before" >
+				<div class="dot" style=""></div>
+			</td>
+			<td class="label" style="">Name:</td>
+			<td id="theProspectName" class="inputted" style="">
+			${name}</td>
+		</tr>
+		<tr class="company-name" class="data-row" style="">
+			<td class="before" >
+				<div class="dot" style=""></div>
+			</td>
+			<td class="label" style="">Company:</td>
+			<td id="theCompanyName" class="inputted" style="">
+				<a id="theCompanyLink" href="${link}" style="text-decoration: none;">${companyName}</a>
+			</td>
+		</tr>
+		<tr class="data-row" style="">
+			<td class="before" >
+				<div class="dot" style=""></div>
+			</td>
+			<td class="label" style="">Position:</td>
+			<td id="theProspectTitle" class="inputted" style="">
+			${jobTitle}</td>
+		</tr>
+		<tr class="data-row" style="">
+			<td class="before" >
+			<div class="dot" style=""></div>
+			</td>
+			<td class="label" style="">Email:</td>
+			<td id="theProspectEmail" class="inputted" style="">
+				<a href="mailto:${email}" style="text-decoration: none;">${email}</a></td>
+		</tr>
+		<tr class="data-row" style="">
+			<td class="before" >
+				<div class="dot" style=""></div>
+			</td>
+			<td class="label" style="">Telephone:</td>
+			<td id="theProspectPhoneNumber" class="inputted" style=""><a href="tel:+1${phone[0]}" style="text-decoration: none;">(${phone[1]}) ${phone[2]}-${phone[3]}</a></td>
+		</tr>
+		<tr class="message" class="data-row" style="">
+			<td class="before" style="border-bottom: none; font-size: 20px; line-height: 1.7; width: 20px;">
+				<div class="dot" style=""></div>
+			</td>
+			<td class="label vertical" style="">Message:</td>
+			<td id="theProspectMessage" style="">
+				<em style=""> ${message}</em>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+
+
+</body>
+</html>

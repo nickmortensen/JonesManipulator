@@ -1,40 +1,44 @@
 {
-    "manifest_version":2,
-    "name":"Jones Manipulator",
-    "version":"0.5.2",
-    "description":"Inject HTML, CSS or JavaScript into any web-page. The changes you make are applied everytime you visit the specified website(s).",
-    "icons":
-    {
-        "128":"icon128.png",
-        "48":"icon48.png",
-        "16":"icon16.png"
-    },
-    "browser_action":
-    {
-        "default_icon": "icon16.png",
-        "default_popup": "popup.html",
-        "default_title": "Jones Manipulator"
-    },
+	"manifest_version": 3,
+	"name":"Jones Manipulator",
+	"version":"0.5.5",
+	"description":"NickInject HTML, CSS or JavaScript into any web-page. The changes you make are applied everytime you visit the specified website(s).",
+	"icons":
+	{
+			"128":"icon128.png",
+			"48":"icon48.png",
+			"16":"icon16.png"
+	},
+	"action":
+	{
+			"default_icon": "icon16.png",
+			"default_popup": "popup.html",
+			"default_title": "Page Manipulator"
+	},
 
-    "background":
-    {
-        "scripts": ["eventpage.js"],
-        "persistent": false
-    },
-    "content_scripts":
-    [
-        {
-            "run_at": "document_start",
-            "matches":["<all_urls>"],
-            "js": ["content.js"],
-            "css": ["content.css"],
-            "match_about_blank": true
-        }
-    ],
-    "permissions": [
-        "storage",
-        "activeTab",
-        "contextMenus",
-        "unlimitedStorage"
-    ]
+	"background":
+	{
+			"service_worker": "eventpage.js"
+	},
+	"content_scripts":
+	[
+			{
+					"run_at": "document_start",
+					"matches":["<all_urls>"],
+					"js": ["content.js"],
+					"css": ["content.css"],
+					"match_about_blank": true
+			}
+	],
+	"permissions": [
+			"fileSystem",
+			"storage",
+			"activeTab",
+			"contextMenus",
+			"unlimitedStorage"
+	],
+	"web_accessible_resources": [{
+			"resources": ["receiver.js"],
+			"matches": ["<all_urls>"]
+	}]
 }

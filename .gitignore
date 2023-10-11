@@ -1,17 +1,20 @@
 # Ignore everything in the root except the "wp-content" directory.
 # /*
-!.gitignore
-!libs/
-!popup.html
-!manifest.json
-!README.md
+# !.gitignore
+libs/
+libs/ace
+.gitignore
+.editorconfig
+# !popup.html
+# !manifest.json
+# !README.md
 
-!content.css
-!popup.css
+# !content.css
+# !popup.css
 
-!content.js
-!eventpage.js
-!popup.js
+# !content.js
+# !eventpage.js
+# !popup.js
 
 # MAC Finder files
 **/.DS_Store
@@ -20,3 +23,13 @@
 
 !/.github/
 # use
+.vscode
+
+.editorconfig
+
+content.backup.js
+eventpage.backup.js
+examples/delete_reddit.js
+popup_05022023.js
+manifestv2.json
+popup_refactored.js

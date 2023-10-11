@@ -1,3 +1,6 @@
+/**
+ * NOTE: IF THIS FILE DOES NOT WORK - REVERT BACK TO popup_05022023.js
+ */
 window.onload = function startup() {
 	// Enable to clear the storage.
 	// chrome.storage.sync.clear();
@@ -12,7 +15,7 @@ window.onload = function startup() {
 
 // Inserts code into the current site.
 function insert( todo, code, position, mode, filename ) {
-// todo shoud be > changeHTML, changeCSS or changeJS
+	// todo should be > changeHTML, changeCSS or changeJS
 	chrome.tabs.query( { active: true, currentWindow: true }, function( tabs ) {
 		chrome.tabs.sendMessage( tabs[0].id, { todo: todo, code: code, position: position, mode: mode, filename: filename } );
 	} );
@@ -75,6 +78,44 @@ function communicationTest( onFail, onSuccess, retryTimeMiliSeconds = 500 ) {
 /** ***************************************************************
  * ******* Class responsible for controlling the editor. ******
  */
+
+const allMenuTypes = [ 'MAIN', 'JS', 'CSS', 'HTML', 'EDITOR', 'NEW', 'ERROR' ]
+// Array that contains [filename, editor session object] combinations.
+let files                  = [];
+let maxOpenFiles           = 6;
+let activeFile             = 'none';
+let previousFile           = 'none';
+let navigator               = navigator;
+let maxSyncedFilesizeChars  = 8000;
+const editorElement         = document.getElementById( 'editor' );
+editorElement.style.display = 'none';
+let allOpenFilenames = [];
+
+/**
+ * Opens  a new editor if there is no file with the name yet
+ */
+function openFile( filename, text ) {
+	let allOpenFilenames = [];
+	for ( let element of files ) {
+		allOpenFilenames.push( element[0] );
+	}
+	// check if the file isn't already open.
+	if ( allOpenFilenames.includes( filename ) ) {
+		this.activateFileByName( filename );
+	}
+	else {
+		// Check if the maximum amount of open files ( 6 ) isn't already reached.
+		if ( this.files.length < this.maxOpenFiles ) {
+			this.createWindow( filename, text );
+			this.createFileButton( filename );
+			this.activateFileByName( filename );
+		}
+		else {
+			alert( 'Close some files first.' );
+		}
+	}
+}
+
 class Editor {
 	constructor( navigator ) {
 		// Array that contains [filename, editor session object] combinations.
@@ -85,12 +126,12 @@ class Editor {
 		this.navigator              = navigator;
 		this.maxSyncedFilesizeChars = 8000;
 
-		this.editor                 = ace.edit( 'editor' );
-		this.editor.getSession().setMode( 'ace/mode/javascript' );
-		this.editor.setTheme( 'ace/theme/terminal' );
-		this.EditSession                 = require( 'ace/edit_session' ).EditSession;
-		this.editorElement               = document.getElementById( 'editor' );
-		this.editorElement.style.display = 'none';
+		// this.editor                 = ace.edit( 'editor' );
+		// this.editor.getSession().setMode( 'ace/mode/javascript' );
+		// this.editor.setTheme( 'ace/theme/terminal' );
+		// this.EditSession                 = require( 'ace/edit_session' ).EditSession;
+		// this.editorElement               = document.getElementById( 'editor' );
+		// this.editorElement.style.display = 'none';
 	}
 
 	// Opens a new editor window if the file doesn't exist yet.
@@ -605,6 +646,8 @@ class Navigation {
 			this.infoText
 		];
 
+		this.allMenuTypes = [ 'MAIN', 'JS', 'CSS', 'HTML', 'EDITOR', 'NEW', 'ERROR' ];
+
 		// Array that contains all files present in the Navigator.
 		// All elements should be of type 'File'.
 		this.navItems = [];
@@ -790,12 +833,19 @@ class Navigation {
 		};
 
 		// Bind the button that creates a new file.
-		this.newButton.onclick = () => {
-			//open the editor.
-			this.disableAllMenus();
-			this.enableMenuOfKind( 'NEW' );
-			this.filenameTextfield.focus();
-		};
+		// this.newButton.onclick = () => {
+		// 	//open the editor.
+		// 	this.disableAllMenus();
+		// 	this.enableMenuOfKind( 'NEW' );
+		// 	this.filenameTextfield.focus();
+		// };
+		this.newButton.addEventListener( 'click', () => {
+			() => {
+				//open the editor.
+				this.disableAllMenus();
+				this.enableMenuOfKind( 'NEW' );
+				this.filenameTextfield.focus();
+		})
 
 		// Bind the 'manipulate'/'update manipulation' button.
 		this.tryButton.onclick = () => {
@@ -809,7 +859,6 @@ class Navigation {
 			this.tryButton.value               = 'Update Manip.';
 			showMessage( 'Page Manipulated' );
 			insert( todo, currentText, position, mode, currentFileName );
-
 		};
 
 		// Bind the button that removes the manipulation from the web-page.
@@ -1018,7 +1067,7 @@ class Navigation {
 				let last           = fileData['last'];
 				let input          = this.addNavButton( filename );
 
-				// Add functionallity to the navigation button.
+				// Add functionality to the navigation button.
 				input.onclick = () => {
 					this.editor.openFile( filename, filetext );
 					this.editor.saveCurrentFile();
@@ -1129,7 +1178,7 @@ class Navigation {
 	enableMenuOfKind( kind ) {
 		this.getSavedNavItems(); // Get all files from storage.
 		this.reloadNavButtons(); // Reload the navigation buttons based on the new data from storage.
-		this.disableAllMenus(); // Dissable all menus.
+		this.disableAllMenus(); // Disable all menus.
 
 		// Activate the right menu.
 		switch( kind ) {
@@ -1246,6 +1295,7 @@ class Navigation {
 			case 'HTML':
 				this.backDiv.style.display = 'none';
 				let allElements            = document.getElementsByClassName( `saved-${kind.toLowerCase()}-nav-button` );
+
 				[...allElements].forEach( element => element.style.display = 'none' )
 				this.newButton.style.display = 'none';
 				break;
@@ -1275,12 +1325,24 @@ class Navigation {
 
 	// Disables all menus.
 	disableAllMenus() {
-		this.disableMenuOfKind( 'MAIN' );
-		this.disableMenuOfKind( 'JS' );
-		this.disableMenuOfKind( 'CSS' );
-		this.disableMenuOfKind( 'HTML' );
-		this.disableMenuOfKind( 'EDITOR' );
-		this.disableMenuOfKind( 'NEW' );
-		this.disableMenuOfKind( 'ERROR' );
+
+		let allMenuTypes = [ 'MAIN', 'JS', 'CSS', 'HTML', 'EDITOR', 'NEW', 'ERROR' ]
+		// this.disableMenuOfKind( 'MAIN' );
+		// this.disableMenuOfKind( 'JS' );
+		// this.disableMenuOfKind( 'CSS' );
+		// this.disableMenuOfKind( 'HTML' );
+		// this.disableMenuOfKind( 'EDITOR' );
+		// this.disableMenuOfKind( 'NEW' );
+		// this.disableMenuOfKind( 'ERROR' );
+
+		allMenuTypes.forEach( menuType => this.disableMenuOfKind( menuType ) )
 	}
+}
+
+/**
+ * Disables All Menus
+ */
+function 	disableAllMenus() {
+	let allMenuTypes = [ 'MAIN', 'JS', 'CSS', 'HTML', 'EDITOR', 'NEW', 'ERROR' ]
+	allMenuTypes.forEach( menuType => this.disableMenuOfKind( menuType ) )
 }

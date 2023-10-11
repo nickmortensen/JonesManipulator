@@ -21,6 +21,6 @@ indent_size = 4
 [{*.txt,wp-config-sample.php}]
 end_of_line = crlf
 
-[*.{php,json,html,css,scss,svg}]
+[*.{php,json,html,css,scss,svg,js}]
 indent_style = tab
 indent_size = 4

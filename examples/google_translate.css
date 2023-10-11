@@ -1,4 +1,4 @@
-:root {
+e:root {
   --FrontColor: #6e6e6e;
   --MiddleColor:#4a4a4a;
   --BackColor: #363636;
@@ -42,25 +42,25 @@
 
 .SMqeCb, .a2Icud, .Dwvecf /* Info fields */
 {
-    background-color: var(--BackColor) !important; 
+    background-color: var(--BackColor) !important;
 }
 
 .ySES5 /* Bottom buttons */
 {
-   background-color: var(--BackColor) !important; 
+   background-color: var(--BackColor) !important;
 }
 
 .KskmCc, .RstnCb.sG5QRb /* Change Language search bar */
 {
-   background-color: var(--BackColor) !important; 
+   background-color: var(--BackColor) !important;
 }
 
 .SL5JTc /* Change Language bottom screen */
 {
-   background-color: var(--BackColor) !important; 
+   background-color: var(--BackColor) !important;
 }
 
 .vLsFwd.lyY31c /* Remove fades */
 {
-   background-color: var(--BackColor) !important; 
+   background-color: var(--BackColor) !important;
 }

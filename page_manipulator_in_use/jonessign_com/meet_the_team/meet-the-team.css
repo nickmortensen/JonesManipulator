@@ -1,0 +1,49 @@
+@media screen and (max-width: 991px) {
+	.nav-menu {
+		background: rgba(0 0 0/.2);
+		backdrop-filter: blur(51px);
+	}
+
+	.dropdown-toggle:hover {
+		color: white;
+	}
+
+	.nav-dropdown-link.w-inline-block > div{
+		color: rgba(255 255 255/0.8);
+	}
+	.nav-dropdown-link.w-inline-block:visited > div {
+		color: rgba(255 255 255/0.8);
+		text-decoration: strike-through;
+	}
+	}
+
+	/* button copies people on jonessign.com/meet-the-tem */
+	.people-copy {
+	--button-text-color: #fff;
+	--button-bg: #0273b9;
+	--box-shadow-color: #515153;
+	overflow: hidden;
+	text-transform: uppercase;
+	position: fixed;
+	top: 50%;
+	right: 5%;
+	border-radius: 50%;
+	border: 5px solid var(--button-text-color);
+	background-color: var(--button-bg);
+	line-height: 1;
+	padding: 30px 20px;
+	color: var(--button-text-color);
+	font-weight: 900;
+	letter-spacing: 1px;
+	box-shadow:
+		-1px 2px 2px var(--box-shadow-color),
+		1px -2px 2px var(--box-shadow-color),
+		-5px -2px 2px var(--box-shadow-color),
+		4px 4px 2px var(--box-shadow-color);
+	transition: all 0.5s ease;
+	&:hover {
+		--button-text-color: #0273b9;
+		--button-bg: #fff;
+		--box-shadow-color: goldenrod;
+	}
+}

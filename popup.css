@@ -17,8 +17,7 @@
 	--baseline-font-size: 10px;
 	--font-family: "Fira Code", monospace, sans-serif;
 }
-body
-{
+body {
 	min-width: 600px; /*  max 800  */
 	min-height: 300px; /*  max 600  */
 	background-color: var(--back-color);
@@ -45,12 +44,11 @@ button[type="submit"] {
 	font-weight: 900;
 }
 
-header{
+header {
 	text-align: center;
 }
 
-#message-text
-{
+#message-text {
 	text-align: right;
 	float: right;
 	color: var(--message-color);
@@ -59,16 +57,14 @@ header{
 	opacity: 0;
 }
 
-.text
-{
+.text {
 	color: var(--button-color);
 	margin: 2px;
 	padding: 0;
 	font-weight: var(--default-font-weight, 300);
 }
 
-.labeltext
-{
+.labeltext {
 	color: var(--button-color);
 	display: inline;
 	padding-left: 5px;
@@ -76,8 +72,8 @@ header{
 	margin: 1px;
 	font-weight: var(--default-font-weight, 300);
 }
-.nav-button
-{
+
+.nav-button {
 	width: 130px;
 	min-height: 20px;
 	display: block;
@@ -102,8 +98,7 @@ header{
 ::-webkit-scrollbar-thumb: window-inactive {
 	background: var(--slider-color);
 }
-.small-button
-{
+.small-button {
 	display: inline;
 	min-width: 50px;
 	max-width: 60px;
@@ -112,23 +107,22 @@ header{
 	margin-right: 0px;
 }
 
-#nav-area
-{
+#nav-area {
 	height: 81%;
 	width: 25%;
 	position: fixed;
 	z-index: 2;
 	max-width: 155px;
 }
-#write-area
-{
+
+#write-area {
 	height: 81%;
 	width: 95%;
 	position: fixed;
 	z-index: 1;
 }
-#navbar
-{
+
+#navbar {
 	overflow-y: auto;
 	list-style-type: none;
 	margin: 0;
@@ -136,19 +130,19 @@ header{
 	max-height: 250px; /* 1.5 x 3 */
 }
 
-#open-files-list
-{
+#open-files-list {
 	list-style-type: none;
 	position: fixed;
 	top: 35px;
 	left: 125px;
 }
+
 .open-files-list-item {
 	display: inline;
 	position: relative;
 }
-.file-title-button
-{
+
+.file-title-button {
 	max-width: 200px;
 	border: none;
 	padding-right: 5px;
@@ -159,11 +153,9 @@ header{
 	margin: 0px;
 	border-radius: 10px 2px 0px 0px;
 	padding-bottom: 4px;
-
 }
-.close-button
-{
 
+.close-button {
 	color: var(--back-color);
 	position: absolute;
 	right: 4px;
@@ -176,34 +168,32 @@ header{
 	margin-right: 2px;
 	padding-bottom: 4px; */
 }
+
 .close-button: hover {
 	transform: scale(1.5);
 	font-weight: bold;
 	/* background-color: rgba(255,255,255,0.6) */
-
 }
-#editor
-{
+
+#editor {
 	position: absolute;
 	right: 5px;
 	top: 22px;
 	min-width: 420px;
 	min-height: 230px;
 }
-#donate-button
-{
+
+#donate-button {
 	margin-top: 30px;
 }
 
-#change-filename-button
-{
+#change-filename-button {
 	margin: 0px;
 	width: 20px;
 	height: 20px;
 }
 
-#enabled-sites-text-area
-{
+#enabled-sites-text-area {
 	max-width: 125px;
 	min-width: 125px;
 	min-height: 150px;
@@ -214,36 +204,34 @@ header{
 	font-size: 0.9em;
 
 }
-.selection
-{
+.selection {
 	background-color: var(--dropdown-color);
 	color: var(--button-color);
 	min-width: 130px;
 	margin-left: 5px;
 }
-.checkbox
-{
+
+.checkbox {
 	display: inline;
 	background-color: var(--textarea-color);
 	color: var(--button-color);
 }
-#filename-textfield
-{
-	background-color: var(--textarea-color);
-	color: var(--button-color);
-	max-width: 125px;
-	margin-left: 5px;
-}
-#change-filename-textfield
-{
+
+#filename-textfield {
 	background-color: var(--textarea-color);
 	color: var(--button-color);
 	max-width: 125px;
 	margin-left: 5px;
 }
 
-#change-filename-label
-{
+#change-filename-textfield {
+	background-color: var(--textarea-color);
+	color: var(--button-color);
+	max-width: 125px;
+	margin-left: 5px;
+}
+
+#change-filename-label {
 	width : 100px;
 	overflow: hidden;
 	display: inline-block;
@@ -252,8 +240,7 @@ header{
 	color: white;
 }
 
-#active-label
-{
+#active-label {
 	width : 100px;
 	overflow: hidden;
 	display: inline-block;
@@ -261,8 +248,7 @@ header{
 	white-space: nowrap;
 }
 
-#info-text
-{
+#info-text {
 	position: absolute;
 	left: 180px;
 	top: 20px;
@@ -296,10 +282,7 @@ footer a
 	z-index:-2;
 }
 
-
-
-footer .zoombutton
-{
+footer .zoombutton {
 	position: fixed;
 	bottom: 2px;
 	background-color: var(--button-color);
@@ -309,15 +292,15 @@ footer .zoombutton
 	border: 4px solid white;
 }
 
-#zoom-in-button{
+#zoom-in-button {
 	left: 75px;
 }
 
-#zoom-out-button{
+#zoom-out-button {
 	left: 12px;
 }
 
-#zoom-percentage-label{
+#zoom-percentage-label {
 	position: fixed;
 	bottom: 2px;
 	left: 45px;
