@@ -1,3 +1,10 @@
 body {
+	display: flex;
+}
+
+
+body.unsubscribe {
 	background: #efefef;
+	font-family: system-ui, arial, ui-sans-serif, monospace;
+	padding: 5% 15%;
 }
